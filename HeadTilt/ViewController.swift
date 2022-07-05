@@ -1,36 +1,40 @@
-//
-//  ViewController.swift
-//  HeadTilt
-//
-//  Created by Pallav Agarwal
-//  Twitter: @pallavmac
-
 import UIKit
 import CoreMotion
 
-class ViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
-
-    @IBOutlet weak var textView: UITextView!
+class ViewController: UIViewController {
+    
+    @IBOutlet weak var cursorImage: UIImageView!
+    var location = CGPoint(x: 0, y: 0)
     
     let manager = CMHeadphoneMotionManager()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        location = touches.first!.location(in: self.view)
+        cursorImage.center = location
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        location = touches.first!.location(in: self.view)
+        cursorImage.center = location
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupAirPods()
+    }
+}
+
+extension ViewController {
+    private func setupAirPods() {
         manager.delegate = self
-        
-        print("Authorized: ", CMAuthorizationStatus.authorized)
-        
-        manager.startDeviceMotionUpdates(
-            to: OperationQueue.current!, withHandler: { [self]
-            (deviceMotion, error) -> Void in
-         
+        manager.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: { [self] (deviceMotion, error) -> Void in
             if let motion = deviceMotion {
                 let attitude = motion.attitude
                 let roll = degrees(attitude.roll)
                 let pitch = degrees(attitude.pitch)
                 let yaw = degrees(attitude.yaw)
-                
+                cursorImage.center = CGPoint(x: view.center.x + roll * 5, y: view.center.y + roll * 5)
+     
                 let r = motion.rotationRate
                 let ac = motion.userAcceleration
                 let g = motion.gravity
@@ -50,21 +54,22 @@ class ViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
                     str += "\nGravity:\n"
                     str += xyzText(g.x, g.y, g.z)
                     
-                    textView.text = str
+//                    textView.text = str
                 }
                 
             } else {
-                textView.text = "ERROR: \(error?.localizedDescription ?? "")"
+                print("ERROR: \(error?.localizedDescription ?? "")")
             }
         })
     }
-    
+}
+
+extension ViewController {
     func degreeText(_ label: String, _ num: Double) -> String {
         return String(format: "\(label): %.0fº\n", abs(num))
     }
     
     func xyzText(_ x: Double, _ y: Double, _ z: Double) -> String {
-        // Absolute value just makes it look nicer
         var str = ""
         str += String(format: "X: %.1f\n", abs(x))
         str += String(format: "Y: %.1f\n", abs(y))
@@ -72,15 +77,17 @@ class ViewController: UIViewController, CMHeadphoneMotionManagerDelegate {
         return str
     }
     
+    func degrees(_ radians: Double) -> Double {
+        return 180 / .pi * radians
+    }
+}
+
+extension ViewController: CMHeadphoneMotionManagerDelegate {
     func headphoneMotionManagerDidConnect(_ manager: CMHeadphoneMotionManager) {
-        textView.text = "AirPods Connected!"
+//        textView.text = "AirPods Connected!"
     }
     
     func headphoneMotionManagerDidDisconnect(_ manager: CMHeadphoneMotionManager) {
-        textView.text = "AirPods Disconnected :("
+//        textView.text = "AirPods Disconnected :("
     }
-    
-    func degrees(_ radians: Double) -> Double { return 180 / .pi * radians }
-
 }
-
