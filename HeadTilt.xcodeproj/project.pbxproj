@@ -10,7 +10,6 @@
 		76341084279FF0C5009E4C44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76341083279FF0C5009E4C44 /* AppDelegate.swift */; };
 		76341086279FF0C5009E4C44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76341085279FF0C5009E4C44 /* SceneDelegate.swift */; };
 		76341088279FF0C5009E4C44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76341087279FF0C5009E4C44 /* ViewController.swift */; };
-		7634108B279FF0C5009E4C44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76341089279FF0C5009E4C44 /* Main.storyboard */; };
 		7634108D279FF0C6009E4C44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7634108C279FF0C6009E4C44 /* Assets.xcassets */; };
 		76341090279FF0C6009E4C44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7634108E279FF0C6009E4C44 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		76341083279FF0C5009E4C44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76341085279FF0C5009E4C44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		76341087279FF0C5009E4C44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7634108A279FF0C5009E4C44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7634108C279FF0C6009E4C44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7634108F279FF0C6009E4C44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76341091279FF0C6009E4C44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 				76341083279FF0C5009E4C44 /* AppDelegate.swift */,
 				76341085279FF0C5009E4C44 /* SceneDelegate.swift */,
 				76341087279FF0C5009E4C44 /* ViewController.swift */,
-				76341089279FF0C5009E4C44 /* Main.storyboard */,
 				7634108C279FF0C6009E4C44 /* Assets.xcassets */,
 				7634108E279FF0C6009E4C44 /* LaunchScreen.storyboard */,
 				76341091279FF0C6009E4C44 /* Info.plist */,
@@ -127,7 +124,6 @@
 			files = (
 				76341090279FF0C6009E4C44 /* LaunchScreen.storyboard in Resources */,
 				7634108D279FF0C6009E4C44 /* Assets.xcassets in Resources */,
-				7634108B279FF0C5009E4C44 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +143,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		76341089279FF0C5009E4C44 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7634108A279FF0C5009E4C44 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7634108E279FF0C6009E4C44 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,7 +283,6 @@
 				INFOPLIST_KEY_NSMotionUsageDescription = "Allow Motion Access to Allow AirPod Motion to be registered";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -325,7 +312,6 @@
 				INFOPLIST_KEY_NSMotionUsageDescription = "Allow Motion Access to Allow AirPod Motion to be registered";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
